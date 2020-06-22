@@ -11,4 +11,5 @@ install: $(MFCOQ)
 $(MFCOQ): _CoqProject
 	coq_makefile -f $< -o $(MFCOQ)
 
-
+clean:
+	if [ -f $(MFCOQ) ] ; then make -f $(MFCOQ) clean ; fi
