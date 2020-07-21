@@ -17,6 +17,7 @@ Arguments interp_io {E} h [T] t.
 
 (** Interpret [itree IO] into [IO]. *)
 Definition interp_io' : itree IO ~> IO := interp (E := IO) (M := IO) (fun T (e : IO T) => e).
+Arguments interp_io' [T] t.
 
 (** Interpret [itree void1] into [IO]. *)
 Definition interp_io_ : itree void1 ~> IO := interp (M := IO) (elim_void1 (E := IO)).
