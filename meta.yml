@@ -3,7 +3,6 @@ shortname: coq-itree-io
 opam_name: coq-itree-io
 organization: Lysxia
 circleci: true
-ci_extra_dev: true
 synopsis: Run interaction trees in IO
 description: Interpret itree in the IO monad of simple-io.
 authors:
@@ -14,7 +13,7 @@ license:
 dependencies:
   - opam:
       name: coq-itree
-      version: '{ = "dev" }'
+      version: '{ >= "3.2.0" }'
   - opam:
       name: coq-simple-io
       version: '{ >= "1.3.0" }'

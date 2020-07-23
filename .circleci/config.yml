@@ -6,7 +6,7 @@ jobs:
       coq:
         type: string
     docker:
-    - image: coqorg/coq:<<parameters.coq>>
+    - image: <<parameters.coq>>
     resource_class: medium
     environment:
       OPAMJOBS: 2
@@ -21,7 +21,6 @@ jobs:
     - run:
         name: Install dependencies
         command: |
-          opam repo -a --set-default add coq-extra-dev https://coq.inria.fr/opam/extra-dev
           opam update
           opam install --deps-only .
     - run:
@@ -40,19 +39,19 @@ workflows:
     jobs:
     - build:
         name: "Coq dev"
-        coq: "dev"
+        coq: "coqorg/coq:dev"
     - build:
         name: "Coq 8.12"
-        coq: "8.12"
+        coq: "coqorg/coq:8.12"
     - build:
         name: "Coq 8.11"
-        coq: "8.11"
+        coq: "coqorg/coq:8.11"
     - build:
         name: "Coq 8.10"
-        coq: "8.10"
+        coq: "coqorg/coq:8.10"
     - build:
         name: "Coq 8.9"
-        coq: "8.9"
+        coq: "coqorg/coq:8.9"
     - build:
         name: "Coq 8.8"
-        coq: "8.8"
+        coq: "coqorg/coq:8.8"
