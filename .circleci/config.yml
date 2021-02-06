@@ -1,3 +1,6 @@
+# This file was generated from `meta.yml`, please do not edit manually.
+# Follow the instructions on https://github.com/coq-community/templates to regenerate.
+
 version: 2.1
 
 jobs:
@@ -29,6 +32,14 @@ jobs:
     - run:
         name: Build, test, and install package
         command: opam install -t .
+    - run:
+        name: Test dependants
+        command: |
+          PINS=$(opam list -s --pinned --columns=package | xargs | tr ' ' ,)
+          PACKAGES=`opam list -s --depends-on coq-itree-io --coinstallable-with $PINS`
+          if [ -n "$PACKAGES" ]
+          then opam install -t $PACKAGES
+          fi
     - run:
         name: Uninstall package
         command: opam uninstall .

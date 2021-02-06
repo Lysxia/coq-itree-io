@@ -3,6 +3,7 @@ shortname: coq-itree-io
 opam_name: coq-itree-io
 organization: Lysxia
 circleci: true
+ci_test_dependants: true
 synopsis: Run interaction trees in IO
 description: Interpret itree in the IO monad of simple-io.
 authors:
