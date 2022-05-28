@@ -10,9 +10,9 @@ jobs:
         type: string
     docker:
     - image: <<parameters.coq>>
-    resource_class: medium
+    resource_class: large
     environment:
-      OPAMJOBS: 2
+      OPAMJOBS: 4
       OPAMVERBOSE: 1
       OPAMYES: true
       TERM: xterm
@@ -32,14 +32,17 @@ jobs:
     - run:
         name: Build, test, and install package
         command: opam install -t .
+
     - run:
         name: Test dependants
         command: |
           PINS=$(opam list -s --pinned --columns=package | xargs | tr ' ' ,)
           PACKAGES=`opam list -s --depends-on coq-itree-io --coinstallable-with $PINS`
-          if [ -n "$PACKAGES" ]
-          then opam install -t $PACKAGES
-          fi
+          for PACKAGE in $PACKAGES
+          do DEPS_FAILED=false
+             opam install --deps-only $PACKAGE || DEPS_FAILED=true
+             [ $DEPS_FAILED == true ] || opam install -t $PACKAGE
+          done
     - run:
         name: Uninstall package
         command: opam uninstall .
@@ -49,8 +52,17 @@ workflows:
   test:
     jobs:
     - build:
-        name: "Coq dev"
-        coq: "coqorg/coq:dev"
+        name: "Coq dev-ocaml-4.13-flambda"
+        coq: "coqorg/coq:dev-ocaml-4.13-flambda"
+    - build:
+        name: "Coq 8.15"
+        coq: "coqorg/coq:8.15"
+    - build:
+        name: "Coq 8.14"
+        coq: "coqorg/coq:8.14"
+    - build:
+        name: "Coq 8.13"
+        coq: "coqorg/coq:8.13"
     - build:
         name: "Coq 8.12"
         coq: "coqorg/coq:8.12"
