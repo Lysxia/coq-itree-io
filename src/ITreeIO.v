@@ -1,6 +1,7 @@
 From ITree Require Import ITree.
 From SimpleIO Require Import SimpleIO.
 
+#[export]
 Instance MonadIter_IO : MonadIter IO :=
   fun _ _ f =>
     IO.fix_io (fun self x =>
