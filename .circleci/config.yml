@@ -66,15 +66,3 @@ workflows:
     - build:
         name: "Coq 8.12"
         coq: "coqorg/coq:8.12"
-    - build:
-        name: "Coq 8.11"
-        coq: "coqorg/coq:8.11"
-    - build:
-        name: "Coq 8.10"
-        coq: "coqorg/coq:8.10"
-    - build:
-        name: "Coq 8.9"
-        coq: "coqorg/coq:8.9"
-    - build:
-        name: "Coq 8.8"
-        coq: "coqorg/coq:8.8"
