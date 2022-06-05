@@ -2,7 +2,7 @@
 # Follow the instructions on https://github.com/coq-community/templates to regenerate.
 
 opam-version: "2.0"
-maintainer: "Yishuai Li <yishuai@upenn.edu>"
+maintainer: "Yishuai Li <liyishuai.lys@alibaba-inc.com>"
 version: "dev"
 
 homepage: "https://github.com/Lysxia/coq-itree-io"

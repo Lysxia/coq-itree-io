@@ -19,7 +19,7 @@ dependencies:
       name: coq-simple-io
       version: '{ >= "1.3.0" }'
 namespace: ITreeIO
-opam-file-maintainer: 'Yishuai Li <yishuai@upenn.edu>'
+opam-file-maintainer: 'Yishuai Li <liyishuai.lys@alibaba-inc.com>'
 tested_coq_opam_versions:
   - version: 'dev'
   - version: '8.17'
