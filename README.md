@@ -1,14 +1,14 @@
 # Run interaction trees in IO
 
-[![CircleCI][circleci-shield]][circleci-link]
+[![Docker CI][docker-action-shield]][docker-action-link]
 
 Interpret [`itree`][itree] in the `IO` monad of [*simple-io*][io].
 
 [itree]: https://github.com/DeepSpec/InteractionTrees
 [io]: https://github.com/Lysxia/coq-simple-io
 
-[circleci-shield]: https://circleci.com/gh/Lysxia/coq-itree-io.svg?style=svg
-[circleci-link]:   https://circleci.com/gh/Lysxia/coq-itree-io
+[docker-action-shield]: https://github.com/Lysxia/coq-itree-io/workflows/Docker%20CI/badge.svg?branch=master
+[docker-action-link]: https://github.com/Lysxia/coq-itree-io/actions?query=workflow:"Docker%20CI"
 
 ## Overview
 
